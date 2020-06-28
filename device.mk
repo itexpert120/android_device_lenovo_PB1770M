@@ -155,4 +155,4 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
 
 # Call the proprietary setup
-$(call inherit-product, vendor/xiaomi/ferrari/ferrari-vendor.mk)
+$(call inherit-product, vendor/lenovo/PB1770M/PB1770M-vendor.mk)

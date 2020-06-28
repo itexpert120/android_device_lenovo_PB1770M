@@ -23,6 +23,7 @@ dalvik.vm.heapmaxfree=8m
 
 # Display
 ro.sf.lcd_density=320
+qemu.hw.mainkeys=0
 
 # Media
 media.stagefright.legacyencoder=true

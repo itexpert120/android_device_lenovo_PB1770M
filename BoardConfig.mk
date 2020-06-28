@@ -63,7 +63,7 @@ USE_DEVICE_SPECIFIC_GPS := true
 BOARD_DTBTOOL_ARGS := -2
 BOARD_KERNEL_SEPARATED_DT := true
 BOARD_KERNEL_IMAGE_NAME := Image
-TARGET_KERNEL_SOURCE := kernel/xiaomi/ferrari
+TARGET_KERNEL_SOURCE := kernel/lenovo/PB1770M
 ifeq ($(WITH_TWRP),true)
 TARGET_KERNEL_CONFIG := recovery_pb1770m_defconfig
 else

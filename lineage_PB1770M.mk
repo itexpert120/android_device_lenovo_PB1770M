@@ -28,10 +28,10 @@ PRODUCT_BRAND := Lenovo
 PRODUCT_MODEL := Phab Plus
 PRODUCT_MANUFACTURER := Lenovo
 
-PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
+PRODUCT_GMS_CLIENTID_BASE := android-lenovo
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-	PRIVATE_BUILD_DESC="ferrari-user 5.0.2 LRX22G V9.2.3.0.LXIMIEK release-keys" \
-	PRODUCT_NAME="ferrari"
+	   PRIVATE_BUILD_DESC="msm8916_64-user 5.1.1 LMY47V eng.build.20160923.120019 release-keys" \
+           PRODUCT_NAME="PB1770M" 
 
-BUILD_FINGERPRINT := "Xiaomi/ferrari/ferrari:5.0.2/LRX22G/V9.2.3.0.LXIMIEK:user/release-keys"
+BUILD_FINGERPRINT="Lenovo/PB1-770M/PB1-770M:5.1.1/S100/PB1-770M_S000409_160923_ROW:user/release-keys" \

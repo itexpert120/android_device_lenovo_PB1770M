@@ -1,4 +1,4 @@
-TARGET_RECOVERY_DEVICE_DIRS += device/xiaomi/ferrari/twrp
+TARGET_RECOVERY_DEVICE_DIRS += device/lenovo/PB1770M/twrp
 TW_INCLUDE_CRYPTO := true
 TW_CRYPTO_USE_SYSTEM_VOLD := qseecomd hwservicemanager keymaster-3-0
 TW_THEME := portrait_hdpi

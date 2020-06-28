@@ -22,7 +22,7 @@ dalvik.vm.heapminfree=2m
 dalvik.vm.heapmaxfree=8m
 
 # Display
-ro.sf.lcd_density=480
+ro.sf.lcd_density=320
 
 # Media
 media.stagefright.legacyencoder=true

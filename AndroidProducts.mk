@@ -14,4 +14,4 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_ferrari.mk
+    $(LOCAL_DIR)/lineage_PB1770M.mk

@@ -16,7 +16,7 @@
 # Inherit from msm8916-common
 include device/cyanogen/msm8916-common/BoardConfigCommon.mk
 
-DEVICE_PATH := device/xiaomi/ferrari
+DEVICE_PATH := device/lenovo/PB1770M
 
 # Assertions
 TARGET_BOARD_INFO_FILE := $(DEVICE_PATH)/board-info.txt
@@ -64,11 +64,11 @@ BOARD_DTBTOOL_ARGS := -2
 BOARD_KERNEL_SEPARATED_DT := true
 BOARD_KERNEL_IMAGE_NAME := Image
 TARGET_KERNEL_SOURCE := kernel/xiaomi/ferrari
-ifeq ($(WITH_TWRP),true)
-TARGET_KERNEL_CONFIG := ferrari-recovery_defconfig
-else
-TARGET_KERNEL_CONFIG := ferrari_defconfig
-endif
+#ifeq ($(WITH_TWRP),true)
+#TARGET_KERNEL_CONFIG := ferrari-recovery_defconfig
+#else
+TARGET_KERNEL_CONFIG := lineage_pb1770m_defconfig
+#endif
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 
 # LineageHW
@@ -99,12 +99,12 @@ TARGET_LD_SHIM_LIBS += \
     /system/vendor/lib/libmmcamera2_imglib_modules.so|libcamera_shim.so
 
 # TWRP
-ifeq ($(WITH_TWRP),true)
-include $(DEVICE_PATH)/twrp.mk
-endif
+#ifeq ($(WITH_TWRP),true)
+#include $(DEVICE_PATH)/twrp.mk
+#endif
 
 # WLAN
 TARGET_PROVIDES_WCNSS_QMI := true
 
 # inherit from the proprietary version
--include vendor/xiaomi/ferrari/BoardConfigVendor.mk
+-include vendor/lenovo/PB1770M/BoardConfigVendor.mk

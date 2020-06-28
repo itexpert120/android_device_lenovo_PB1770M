@@ -64,11 +64,11 @@ BOARD_DTBTOOL_ARGS := -2
 BOARD_KERNEL_SEPARATED_DT := true
 BOARD_KERNEL_IMAGE_NAME := Image
 TARGET_KERNEL_SOURCE := kernel/xiaomi/ferrari
-#ifeq ($(WITH_TWRP),true)
-#TARGET_KERNEL_CONFIG := ferrari-recovery_defconfig
-#else
+ifeq ($(WITH_TWRP),true)
+TARGET_KERNEL_CONFIG := recovery_pb1770m_defconfig
+else
 TARGET_KERNEL_CONFIG := lineage_pb1770m_defconfig
-#endif
+endif
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 
 # LineageHW
@@ -99,9 +99,9 @@ TARGET_LD_SHIM_LIBS += \
     /system/vendor/lib/libmmcamera2_imglib_modules.so|libcamera_shim.so
 
 # TWRP
-#ifeq ($(WITH_TWRP),true)
-#include $(DEVICE_PATH)/twrp.mk
-#endif
+ifeq ($(WITH_TWRP),true)
+include $(DEVICE_PATH)/twrp.mk
+endif
 
 # WLAN
 TARGET_PROVIDES_WCNSS_QMI := true

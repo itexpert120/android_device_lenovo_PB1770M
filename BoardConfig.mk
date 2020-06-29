@@ -68,7 +68,7 @@ TARGET_KERNEL_SOURCE := kernel/lenovo/PB1770M
 ifeq ($(WITH_TWRP),true)
 TARGET_KERNEL_CONFIG := recovery_pb1770m_defconfig
 else
-TARGET_KERNEL_CONFIG := lineage_pb1770m_defconfig
+TARGET_KERNEL_CONFIG := lineageos_pb1770m_defconfig
 endif
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 

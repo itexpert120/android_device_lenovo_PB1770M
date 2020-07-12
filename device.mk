@@ -24,17 +24,16 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
 # Audio
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/audio/acdb/MTP_WCD9306_Bluetooth_cal.acdb:system/etc/acdbdata/MTP/MTP_WCD9306_Bluetooth_cal.acdb \
-    $(LOCAL_PATH)/audio/acdb/MTP_WCD9306_General_cal.acdb:system/etc/acdbdata/MTP/MTP_WCD9306_General_cal.acdb \
-    $(LOCAL_PATH)/audio/acdb/MTP_WCD9306_Global_cal.acdb:system/etc/acdbdata/MTP/MTP_WCD9306_Global_cal.acdb \
-    $(LOCAL_PATH)/audio/acdb/MTP_WCD9306_Handset_cal.acdb:system/etc/acdbdata/MTP/MTP_WCD9306_Handset_cal.acdb \
-    $(LOCAL_PATH)/audio/acdb/MTP_WCD9306_Hdmi_cal.acdb:system/etc/acdbdata/MTP/MTP_WCD9306_Hdmi_cal.acdb \
-    $(LOCAL_PATH)/audio/acdb/MTP_WCD9306_Headset_cal.acdb:system/etc/acdbdata/MTP/MTP_WCD9306_Headset_cal.acdb \
-    $(LOCAL_PATH)/audio/acdb/MTP_WCD9306_Speaker_cal.acdb:system/etc/acdbdata/MTP/MTP_WCD9306_Speaker_cal.acdb \
-    $(LOCAL_PATH)/audio/audio_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info_extcodec.xml \
-    $(LOCAL_PATH)/audio/audio_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy.conf \
-    $(LOCAL_PATH)/audio/dolby/dax-default.xml:$(TARGET_COPY_OUT_VENDOR)/etc/dobly/dax-default.xml \
-    $(LOCAL_PATH)/audio/mixer_paths_wcd9306.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_wcd9306.xml
+    $(LOCAL_PATH)/audio/acdb/Bluetooth_cal.acdb:system/etc/acdbdata/QRD/QRD_Bluetooth_cal.acdb \
+    $(LOCAL_PATH)/audio/acdb/General_cal.acdb:system/etc/acdbdata/QRD/QRD_General_cal.acdb \
+    $(LOCAL_PATH)/audio/acdb/QRD_Global_cal.acdb:system/etc/acdbdata/QRD/QRD_Global_cal.acdb \
+    $(LOCAL_PATH)/audio/acdb/QRD_Handset_cal.acdb:system/etc/acdbdata/QRD/QRD_Handset_cal.acdb \
+    $(LOCAL_PATH)/audio/acdb/QRD_Hdmi_cal.acdb:system/etc/acdbdata/QRD/QRD_Hdmi_cal.acdb \
+    $(LOCAL_PATH)/audio/acdb/QRD_Headset_cal.acdb:system/etc/acdbdata/QRD/QRD_Headset_cal.acdb \
+    $(LOCAL_PATH)/audio/acdb/QRD_Speaker_cal.acdb:system/etc/acdbdata/QRD/QRD_Speaker_cal.acdb \
+    $(LOCAL_PATH)/audio/audio_platform_info.xml:system/vendor/etc/audio_platform_info.xml \
+    $(LOCAL_PATH)/audio/audio_policy.conf:system/vendor/etc/audio_policy.conf \
+    $(LOCAL_PATH)/audio/mixer_paths.xml:system/vendor/etc/mixer_paths_qrd_skui.xml
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1920

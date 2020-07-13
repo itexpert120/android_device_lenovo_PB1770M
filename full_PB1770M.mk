@@ -25,5 +25,5 @@ $(call inherit-product, device/lenovo/PB1770M/device.mk)
 PRODUCT_DEVICE := PB1770M
 PRODUCT_NAME := full_PB1770M
 PRODUCT_BRAND := Lenovo
-PRODUCT_MODEL := Phab Plus
+PRODUCT_MODEL := Lenovo Phab Plus
 PRODUCT_MANUFACTURER := Lenovo

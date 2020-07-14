@@ -27,6 +27,10 @@
 #
 #
 
+on early-init
+    #set non-stand-charger can used
+    write /sys/module/phy_msm_usb/parameters/floated_charger_enable Y
+
 on boot
 
     # Notification LED permissions
@@ -50,6 +54,18 @@ on boot
     chown system system /sys/class/timed_output/vibrator/enable
     chown system system /sys/class/timed_output/vibrator/amp
     chmod 0664 /sys/class/timed_output/vibrator/amp
+    
+    # charger
+    chown system system /sys/bus/i2c/drivers/lc709203/batt_capacity
+    chmod 0660 /sys/bus/i2c/drivers/lc709203/batt_capacity
+    chown root system /sys/class/power_supply/bms/current_now
+    chown root system /sys/class/power_supply/bms/voltage_ocv
+    chmod 0664 /sys/class/power_supply/bms/current_now
+    chmod 0664 /sys/class/power_supply/bms/voltage_ocv
+    
+    # Torch
+    chown system camera /sys/class/leds/torch-light/brightness
+    chmod 0660 /sys/class/leds/torch-light/brightness
 
 service readmac /system/vendor/bin/readmac
     class main
@@ -74,4 +90,4 @@ on charger
 service vm_bms /system/vendor/bin/vm_bms
     class core
     user root
-    group root
+    group root wakelock

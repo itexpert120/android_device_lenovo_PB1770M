@@ -217,6 +217,7 @@
     </path>
 
     <path name="deep-buffer-playback bt-sco-wb">
+        <ctl name="Internal BTSCO SampleRate" value="16000" />
         <path name="deep-buffer-playback bt-sco" />
     </path>
 
@@ -246,6 +247,7 @@
     </path>
 
     <path name="low-latency-playback bt-sco-wb">
+        <ctl name="Internal BTSCO SampleRate" value="16000" />
         <path name="low-latency-playback bt-sco" />
     </path>
 
@@ -539,7 +541,8 @@
 
     <!-- These are actual sound device specific mixer settings -->
     <path name="adc1">
-        <ctl name="DEC1 MUX" value="DMIC1" />
+        <ctl name="DEC1 MUX" value="ADC1" />
+        <ctl name="MICBIAS CAPLESS Switch" value="1" />
     </path>
 
     <path name="adc2">
@@ -548,7 +551,7 @@
     </path>
 
     <path name="adc3">
-        <ctl name="DEC1 MUX" value="DMIC2" />
+        <ctl name="DEC1 MUX" value="ADC2" />
         <ctl name="ADC2 MUX" value="INP3" />
     </path>
 
@@ -681,15 +684,7 @@
     <!-- Dual MIC devices -->
     <path name="speaker-dmic-endfire">
         <path name="adc1" />
-        <ctl name="DEC2 MUX" value="DMIC2" />
-        <ctl name="MI2S_TX Channels" value="Two" />
-        <ctl name="ADC2 MUX" value="INP3" />
-    </path>
-
-    <path name="camcorder-reverse-mic">
-        <ctl name="DEC1 MUX" value="DMIC2" />
-        <ctl name="DEC2 MUX" value="DMIC1" />
-        <ctl name="ADC2 Volume" value="6" />
+        <ctl name="DEC2 MUX" value="ADC2" />
         <ctl name="MI2S_TX Channels" value="Two" />
         <ctl name="ADC2 MUX" value="INP3" />
     </path>
@@ -744,15 +739,6 @@
         <ctl name="AUDIO_REF_EC_UL1 MUX" value="I2S_RX" />
     </path>
 
-    <path name="levoice-50ns-mic">
-        <ctl name="AUDIO_REF_EC_UL1 MUX" value="I2S_RX" />
-        <path name="dmic-endfire" />
-    </path>
-
-    <path name="levoice-20ec-mic">
-        <ctl name="AUDIO_REF_EC_UL1 MUX" value="I2S_RX" />
-        <path name="dmic-endfire" />
-    </path>
     <!-- TTY devices -->
 
     <path name="tty-headphones">

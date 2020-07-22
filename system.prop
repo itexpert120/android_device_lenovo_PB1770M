@@ -28,6 +28,8 @@ qemu.hw.mainkeys=0
 # Media
 media.stagefright.legacyencoder=true
 media.stagefright.less-secure=true
+mmp.enable.3g2=true
+debug.stagefright.ccodec=0
 
 # First api level, device has been commercially launched
 ro.product.first_api_level=21
@@ -39,3 +41,6 @@ ro.product.model.platform=1
 persist.radio.multisim.config=dsds
 rild.libpath=/system/vendor/lib64/libril-qc-qmi-1.so
 ro.telephony.default_network=9,1
+
+# Vendor security patch level
+ro.lineage.build.vendor_security_patch=2016-02-01

@@ -157,3 +157,33 @@ PRODUCT_COPY_FILES += \
 
 # Call the proprietary setup
 $(call inherit-product, vendor/lenovo/PB1770M/PB1770M-vendor.mk)
+
+# ZRAM - Size in MB
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.config.zram.size=384
+
+# Reduced power consumption
+PRODUCT_PROPERTY_OVERRIDES += \
+   ro.audio.flinger_standbytime_ms=300
+
+# OpenGL
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.hwui.renderer=opengl
+
+# Memory optimization
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.qti.am.reschedule_service=true \
+    ro.vendor.qti.sys.fw.bservice_enable=true \
+    ro.vendor.extension_library=libqti-perfd-client.so \
+    ro.core_ctl_min_cpu=0 \
+    ro.core_ctl_max_cpu=4 \
+    ro.min_freq_0=800000
+
+# Display Opt
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.sf.enable_gl_backpressure=1
+
+# LMK
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.lmk.medium=700 \
+    dalvik.vm.madvise-random=true 

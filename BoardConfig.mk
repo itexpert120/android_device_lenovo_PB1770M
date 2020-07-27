@@ -84,11 +84,7 @@ BOARD_DTBTOOL_ARGS := -2
 BOARD_KERNEL_SEPARATED_DT := true
 BOARD_KERNEL_IMAGE_NAME := Image
 TARGET_KERNEL_SOURCE := kernel/lenovo/PB1770M
-ifeq ($(WITH_TWRP),true)
-TARGET_KERNEL_CONFIG := recovery_pb1770m_defconfig
-else
 TARGET_KERNEL_CONFIG := lineageos_pb1770m_defconfig
-endif
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 
 # Lights
@@ -122,11 +118,6 @@ TARGET_LD_SHIM_LIBS := \
     /system/lib/libmmjpeg_interface.so|libshim_atomic.so \
     /system/vendor/lib64/libril-qc-qmi-1.so|rild_socket.so \
     /system/vendor/lib/libmmcamera2_imglib_modules.so|libshim_atomic.so
-
-# TWRP
-ifeq ($(WITH_TWRP),true)
-include $(DEVICE_PATH)/twrp.mk
-endif
 
 # WLAN
 TARGET_PROVIDES_WCNSS_QMI := true

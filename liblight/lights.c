@@ -316,4 +316,3 @@ struct hw_module_t HAL_MODULE_INFO_SYM = {
     .author = "The CyanogenMod Project",
     .methods = &lights_module_methods,
 };
-© 2020 GitHub, Inc.

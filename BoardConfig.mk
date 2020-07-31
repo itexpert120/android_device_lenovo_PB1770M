@@ -53,8 +53,9 @@ BOARD_CHARGER_DISABLE_INIT_BLANK := true
 BACKLIGHT_PATH := "/sys/class/leds/lcd-backlight/brightness"
 
 # Offline charging
-RED_LED_PATH := "/sys/class/leds/rgbled/brightness"
-BLUE_LED_PATH := "/sys/class/leds/rgbled/brightness"
+RED_LED_PATH := "/sys/class/leds/chg_red/brightness"
+BLUE_LED_PATH := "/sys/class/leds/chg_blue/brightness"
+BLUE_LED_PATH := "/sys/class/leds/chg_green/brightness"
 CHARGING_ENABLED_PATH := "/sys/class/power_supply/usb/online"
 HEALTHD_BACKLIGHT_LEVEL := 60
 

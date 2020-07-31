@@ -40,17 +40,30 @@ static struct light_state_t g_attention;
 static struct light_state_t g_notification;
 static struct light_state_t g_battery;
 
-static const char RED_LED_FILE[]
+char const*const RED_LED_FILE
         = "/sys/class/leds/chg_red/brightness";
 
-static const char LCD_FILE[]
+char const*const GREEN_LED_FILE
+        = "/sys/class/leds/chg_green/brightness";
+
+char const*const BLUE_LED_FILE
+        = "/sys/class/leds/chg_blue/brightness";
+
+char const*const LCD_FILE
         = "/sys/class/leds/lcd-backlight/brightness";
 
-static const char RED_BLINK_FILE[]
-        = "/sys/class/leds/button-backlight/blink";
-
-static const char BUTTON_FILE[]
+char const*const BUTTON_FILE
         = "/sys/class/leds/button-backlight/brightness";
+
+char const*const RED_BLINK_FILE
+        = "/sys/class/leds/chg_red/blink";
+
+char const*const GREEN_BLINK_FILE
+        = "/sys/class/leds/chg_green/blink";
+
+char const*const BLUE_BLINK_FILE
+        = "/sys/class/leds/chg_blue/blink";
+
 
 #define RAMP_SIZE 8
 static int BRIGHTNESS_RAMP[RAMP_SIZE]

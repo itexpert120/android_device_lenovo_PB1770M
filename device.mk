@@ -156,16 +156,13 @@ PRODUCT_PACKAGES += \
 
 # Thermal
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/thermal-engine.conf:system/etc/thermal-engine.conf
-
-PRODUCT_PACKAGES += \
-    android.hardware.thermal@1.0-impl \
-
-PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal_info_config.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config.json
 
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.thermal.config=thermal_info_config.json
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/thermal-engine.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-8939.conf
 
 # USB VID
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
@@ -185,10 +182,26 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.usb.id.midi=4EE8 \
     ro.usb.id.midi_adb=4EE9
 
+# Properties
+PRODUCT_PROPERTY_OVERRIDES += \
+    wifi.interface=wlan0 \
+    wifi.direct.interface=p2p0
+
+# WiFi HAL
+PRODUCT_PACKAGES += \
+    android.hardware.wifi@1.0-service
+
 # Wifi
 PRODUCT_PACKAGES += \
     libwcnss_qmi \
-    readmac
+    wcnss_service
+
+PRODUCT_PACKAGES += \
+    hostapd \
+    wpa_supplicant \
+    wpa_supplicant.conf \
+    libwpa_client \
+    wificond
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_cfg.dat \
@@ -310,5 +323,4 @@ PRODUCT_PACKAGES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    lights.msm8916 \
-    android.hardware.light@2.0-impl \
+    android.hardware.light@2.0-service.PB1770M

@@ -12,3 +12,5 @@ allow system_server persist_file : dir { read write getattr add_name search };
 allow system_server zygote:process setsched;
 
 allow system_server unlabeled:file unlink;
+
+allow system_server init:binder call;

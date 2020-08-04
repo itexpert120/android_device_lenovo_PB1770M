@@ -1,4 +1,9 @@
 allow init proc:file { read open getattr };
-allow init sysfs:file setattr;
+allow init sysfs:file { setattr write open };
 allow init vendor_file:file execute_no_trans;
 allow init sysfs_graphics:file { write open read };
+allow init hwservicemanager:binder { call transfer };
+allow init hal_light_hwservice:hwservice_manager add;
+allow init hidl_base_hwservice:hwservice_manager add;
+allow init hal_vibrator_hwservice:hwservice_manager add;
+allow init sysfs_vibrator:file read;

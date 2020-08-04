@@ -1,0 +1,30 @@
+on init
+
+    # LED permissions
+    chown system system /sys/class/leds/chg_red/brightness
+    chown system system /sys/class/leds/chg_red/max_brightness
+    chown system system /sys/class/leds/chg_red/trigger
+    chown system system /sys/class/leds/chg_green/brightness
+    chown system system /sys/class/leds/chg_green/max_brightness
+    chown system system /sys/class/leds/chg_green/trigger
+    chown system system /sys/class/leds/chg_blue/brightness
+    chown system system /sys/class/leds/chg_blue/max_brightness
+    chown system system /sys/class/leds/chg_blue/trigger
+
+    # Change the ownership of the LED interface
+    chmod 0664 /sys/class/leds/chg_red/brightness
+    chmod 0664 /sys/class/leds/chg_red/max_brightness
+    chmod 0664 /sys/class/leds/chg_red/trigger
+    chmod 0664 /sys/class/leds/chg_green/brightness
+    chmod 0664 /sys/class/leds/chg_green/max_brightness
+    chmod 0664 /sys/class/leds/chg_green/trigger
+    chmod 0664 /sys/class/leds/chg_blue/brightness
+    chmod 0664 /sys/class/leds/chg_blue/max_brightness
+    chmod 0664 /sys/class/leds/chg_blue/trigger
+
+service light-hal-2-0 /vendor/bin/hw/android.hardware.light@2.0-service.PB1770M
+    interface android.hardware.light@2.0::ILight default
+    class hal
+    user system
+    group system
+    shutdown critical

@@ -33,28 +33,6 @@ on early-init
 
 on boot
 
-    # LED permissions
-    chown system system /sys/class/leds/chg_red/brightness
-    chown system system /sys/class/leds/chg_red/max_brightness
-    chown system system /sys/class/leds/chg_red/trigger
-    chown system system /sys/class/leds/chg_green/brightness
-    chown system system /sys/class/leds/chg_green/max_brightness
-    chown system system /sys/class/leds/chg_green/trigger
-    chown system system /sys/class/leds/chg_blue/brightness
-    chown system system /sys/class/leds/chg_blue/max_brightness
-    chown system system /sys/class/leds/chg_blue/trigger
-
-    # Change the ownership of the LED interface
-    chmod 0664 /sys/class/leds/chg_red/brightness
-    chmod 0664 /sys/class/leds/chg_red/max_brightness
-    chmod 0664 /sys/class/leds/chg_red/trigger
-    chmod 0664 /sys/class/leds/chg_green/brightness
-    chmod 0664 /sys/class/leds/chg_green/max_brightness
-    chmod 0664 /sys/class/leds/chg_green/trigger
-    chmod 0664 /sys/class/leds/chg_blue/brightness
-    chmod 0664 /sys/class/leds/chg_blue/max_brightness
-    chmod 0664 /sys/class/leds/chg_blue/trigger
-
     # Vibrator
     chown system system /sys/class/timed_output/vibrator/enable
     chown system system /sys/class/timed_output/vibrator/amp

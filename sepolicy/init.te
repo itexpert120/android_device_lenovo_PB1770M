@@ -1,0 +1,4 @@
+allow init proc:file { read open getattr };
+allow init sysfs:file setattr;
+allow init vendor_file:file execute_no_trans;
+allow init sysfs_graphics:file { write open read };

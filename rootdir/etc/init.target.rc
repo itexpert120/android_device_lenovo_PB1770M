@@ -33,22 +33,13 @@ on early-init
 
 on boot
 
-    # Notification LED permissions
-    write /sys/class/leds/red/trigger   "timer"
-    write /sys/class/leds/green/trigger "timer"
-    write /sys/class/leds/blue/trigger  "timer"
-
-    wait /sys/class/leds/red/delay_on 1
-    wait /sys/class/leds/green/delay_on 1
-    wait /sys/class/leds/blue/delay_on 1
-
-    chown system system /sys/class/leds/red/delay_on
-    chown system system /sys/class/leds/green/delay_on
-    chown system system /sys/class/leds/blue/delay_on
-
-    chown system system /sys/class/leds/red/delay_off
-    chown system system /sys/class/leds/green/delay_off
-    chown system system /sys/class/leds/blue/delay_off
+    # LED permissions
+    chown system system /sys/class/leds/chg_red/brightness
+    chown system system /sys/class/leds/chg_red/max_brightness
+    chown system system /sys/class/leds/chg_red/trigger
+    chown system system /sys/class/leds/chg_green/brightness
+    chown system system /sys/class/leds/chg_green/max_brightness
+    chown system system /sys/class/leds/chg_green/trigger
 
     # Vibrator
     chown system system /sys/class/timed_output/vibrator/enable
@@ -77,7 +68,13 @@ service target-sh /vendor/bin/init.target.sh
     class late_start
     user root
     oneshot
-    
+
+on property:sys.boot_completed=1
+    # This is the only thing which init.qcom.post_boot.sh does
+    # This initializes vendor.qti.hardware.perf@1.0-service
+    setprop vendor.post_boot.parsed 1
+    #setprop persist.vendor.mmi.misc_dev_path /dev/block/bootdevice/by-name/misc
+
 on charger
     wait /dev/block/bootdevice/by-name/system
     mount ext4 /dev/block/bootdevice/by-name/system /system ro barrier=1

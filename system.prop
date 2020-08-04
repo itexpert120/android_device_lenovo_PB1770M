@@ -1,9 +1,29 @@
 # Audio
-audio.offload.disable=1
-ro.vendor.audio.sdk.fluencetype=fluence
+ro.vendor.audio.sdk.fluencetype=none
+ro.vendor.audio.sdk.ssr=false
 persist.vendor.audio.fluence.voicecall=true
-persist.vendor.audio.fluence.voicerec=false
+persist.vendor.audio.fluence.voicerec=true
 persist.vendor.audio.fluence.speaker=false
+vendor.voice.path.for.pcm.voip=true
+vidc.enc.narrow.searchrange=1
+vendor.audio.tunnel.encode = false
+vendor.voice.playback.conc.disabled=true
+vendor.voice.record.conc.disabled=true
+vendor.voice.voip.conc.disabled=true
+
+# Audio offload
+af.fast_track_multiplier=1
+audio.deep_buffer.media=true
+vendor.audio.offload.buffer.size.kb=64
+vendor.audio.offload.gapless.enabled=true
+vendor.audio_hal.period_size=192
+audio.offload.min.duration.secs=30
+audio.offload.pcm.16bit.enable=true
+audio.offload.pcm.24bit.enable=false
+audio.offload.video=true
+audio.offload.disable=1
+av.offload.enable=true
+vendor.audio.dolby.ds2.enabled=true
 
 # Bluetooth
 ro.bt.bdaddr_path=/data/misc/bluetooth/bdaddr
@@ -30,6 +50,9 @@ media.stagefright.legacyencoder=true
 media.stagefright.less-secure=true
 mmp.enable.3g2=true
 debug.stagefright.ccodec=0
+
+# Memory optimizations
+ro.vendor.qti.sys.fw.bservice_enable=true
 
 # First api level, device has been commercially launched
 ro.product.first_api_level=21

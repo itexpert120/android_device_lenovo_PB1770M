@@ -1,0 +1,16 @@
+on init
+
+    # Change the ownership of the LED interface
+    chmod 0664 /sys/class/leds/chg_red/brightness
+    chmod 0664 /sys/class/leds/chg_red/max_brightness
+    chmod 0664 /sys/class/leds/chg_red/trigger
+    chmod 0664 /sys/class/leds/chg_green/brightness
+    chmod 0664 /sys/class/leds/chg_green/max_brightness
+    chmod 0664 /sys/class/leds/chg_green/trigger
+
+service light-hal-2-0 /vendor/bin/hw/android.hardware.light@2.0-service.msm8916
+    class hal
+    user system
+    group system
+    # shutting off lights while powering-off
+    shutdown critical

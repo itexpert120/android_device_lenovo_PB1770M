@@ -10,3 +10,5 @@ allow system_server persist_file : dir { read write getattr add_name search };
 # run on big cores for app launch (sched_boost) - instead of just
 # boosting them to make it "more likely" to run on big cores.
 allow system_server zygote:process setsched;
+
+allow system_server unlabeled:file unlink;

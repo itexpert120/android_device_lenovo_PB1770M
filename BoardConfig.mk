@@ -99,6 +99,9 @@ TARGET_KERNEL_SOURCE := kernel/lenovo/PB1770M
 TARGET_KERNEL_CONFIG := lineageos_pb1770m_defconfig
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 
+# Lights
+TARGET_PROVIDES_LIBLIGHT := true
+
 # Low Memory Devices
 MALLOC_SVELTE := true
 

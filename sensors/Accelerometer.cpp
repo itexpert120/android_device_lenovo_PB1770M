@@ -273,3 +273,87 @@ again:
 
 	return numEventReceived;
 }
+
+int AccelSensor::calibrate(int32_t, struct cal_cmd_t *para,
+				struct cal_result_t *cal_result)
+{
+	int fd;
+	char temp[ARRAY][LENGTH];
+	char buf[ARRAY * LENGTH];
+	char *token, *strsaveptr, *endptr;
+	int i, err;
+	off_t offset;
+	int para1 = 0;
+
+	if (para == NULL || cal_result == NULL) {
+		ALOGE("Null pointer calibrate parameters\n");
+		return -1;
+	}
+	para1 = CMD_CAL(para->axis, para->apply_now);
+	strlcpy(&input_sysfs_path[input_sysfs_path_len],
+			SYSFS_CALIBRATE, SYSFS_MAXLEN);
+	fd = open(input_sysfs_path, O_RDWR);
+	if (fd >= 0) {
+		snprintf(buf, sizeof(buf), "%d", para1);
+		write(fd, buf, strlen(buf)+1);
+	} else {
+		ALOGE("open %s failed\n", input_sysfs_path);
+		return -1;
+	}
+	offset = lseek(fd, 0, SEEK_SET);
+	char *p = buf;
+	memset(buf, 0, sizeof(buf));
+	err = read(fd, buf, sizeof(buf)-1);
+	if(err < 0) {
+		ALOGE("read error\n");
+		close(fd);
+		return err;
+	}
+	for(i = 0; i < ARRAY; i++, p = NULL) {
+		token = strtok_r(p, ",", &strsaveptr);
+		if(token == NULL)
+			break;
+		if(strlen(token) > LENGTH - 1) {
+			ALOGE("token is too long\n");
+			close(fd);
+			return -1;
+		}
+		strlcpy(temp[i], token, sizeof(temp[i]));
+	}
+	close(fd);
+	for(int i = 0; i < ARRAY; i++) {
+		cal_result->offset[i] = strtol(temp[i], &endptr, 0);
+		if (endptr == temp[i]) {
+			ALOGE("No digits were found\n");
+			return -1;
+		}
+	}
+	return 0;
+}
+
+int AccelSensor::initCalibrate(int32_t, struct cal_result_t *cal_result)
+{
+	int fd, err;
+	char buf[LENGTH];
+
+	if (cal_result == NULL) {
+		ALOGE("Null pointer initcalibrate parameter\n");
+		return -1;
+	}
+	fd = open("/sys/class/sensors/bma2x2-accel/calibrate", O_WRONLY);
+	if (fd >= 0) {
+		memset(buf, 0, sizeof(buf));
+		snprintf(buf, sizeof(buf), "%d %d %d",
+			cal_result->offset_x, cal_result->offset_y, cal_result->offset_z);
+		err = write(fd, buf, strlen(buf)+1);
+		if(err < 0) {
+			ALOGE("write error\n");
+			close(fd);
+			return err;
+		}
+		close(fd);
+		return 0;
+	}
+	ALOGE("accelerometer calibration file open error: %d", -errno);
+	return -1;
+}

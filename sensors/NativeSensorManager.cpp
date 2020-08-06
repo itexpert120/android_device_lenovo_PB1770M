@@ -1239,8 +1239,8 @@ int NativeSensorManager::initCalibrate(const SensorContext *list)
 	    }
 	}
 	if (err < 0) {
-		ALOGE("read %s calibrate params error: %d", list->sensor->name, err);
-		return err;
+		ALOGE("(override) read %s calibrate params error: %d", list->sensor->name, err);
+		//return err;
 	}
 
 	switch (list->sensor->type) {

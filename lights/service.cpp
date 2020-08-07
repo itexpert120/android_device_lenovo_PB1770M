@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "android.hardware.light@2.0-service.shamu"
+#define LOG_TAG "android.hardware.light@2.0-service.PB1770M"
 
 #include <hidl/HidlTransportSupport.h>
 

@@ -40,12 +40,12 @@ BOARD_HAVE_BLUETOOTH_QCOM := true
 BLUETOOTH_HCI_USE_MCT := true
 
 # Camera
+BOARD_CAMERA_SENSORS := ov13850 ov5693
+TARGET_USE_VENDOR_CAMERA_EXT := true
 USE_DEVICE_SPECIFIC_CAMERA := true
-TARGET_HAS_LEGACY_CAMERA_HAL1 := true
-TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
 TARGET_PROCESS_SDK_VERSION_OVERRIDE := \
-    /system/bin/mediaserver=22 \
-    /system/vendor/bin/mm-qcamera-daemon=22
+	/system/bin/mediaserver=22 \
+	/system/vendor/bin/mm-qcamera-daemon=22
 
 # Charger
 BOARD_CHARGER_ENABLE_SUSPEND := true
@@ -120,16 +120,6 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
 
 # SELinux
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
-
-# Shims
-TARGET_LD_SHIM_LIBS := \
-    /system/lib64/libril.so|libshim_ril.so \
-    /system/vendor/lib/libmmcamera2_stats_modules.so|libshim_gui.so \
-    /system/vendor/lib/libmmcamera2_stats_modules.so|libshim_atomic.so \
-    /system/lib/hw/camera.vendor.msm8916.so|libshim_atomic.so \
-    /system/lib/libmmjpeg_interface.so|libshim_atomic.so \
-    /system/vendor/lib64/libril-qc-qmi-1.so|rild_socket.so \
-    /system/vendor/lib/libmmcamera2_imglib_modules.so|libshim_atomic.so
 
 # WLAN
 TARGET_PROVIDES_WCNSS_QMI := true

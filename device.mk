@@ -71,11 +71,18 @@ TARGET_SCREEN_WIDTH := 1080
 
 # Camera
 PRODUCT_PACKAGES += \
-    android.hardware.camera.provider@2.4-impl-legacy \
+    android.hardware.camera.provider@2.4-impl \
+    android.hardware.camera.provider@2.4-service \
     camera.device@1.0-impl \
     camera.msm8916 \
     libmm-qcamera \
+    libshim_atomic \
     Snap
+
+# Properties
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.camera.cpp.duplication=false \
+    persist.camera.hal.debug.mask=0
 
 # GPS
 PRODUCT_PACKAGES += \
@@ -149,12 +156,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl
-
-# Shims
-PRODUCT_PACKAGES += \
-    libcamera_shim \
-    libshims_flp \
-    libshims_get_process_name
 
 # Thermal
 PRODUCT_COPY_FILES += \

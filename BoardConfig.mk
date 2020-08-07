@@ -27,6 +27,7 @@ TARGET_FLATTEN_APEX := true
 
 # Audio
 AUDIO_FEATURE_DEEP_BUFFER_RINGTONE := true
+
 AUDIO_FEATURE_ENABLED_KPI_OPTIMIZE := true
 AUDIO_FEATURE_LOW_LATENCY_PRIMARY := true
 AUDIO_FEATURE_ENABLED_MULTI_VOICE_SESSIONS := true
@@ -121,6 +122,12 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
 # SELinux
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
 
+# Shims
+TARGET_LD_SHIM_LIBS += \
+    /system/vendor/bin/mm-pp-daemon|libshim_atomic.so \
+    /system/vendor/bin/mm-qcamera-daemon|libshim_atomic.so \
+    /system/vendor/bin/perfd|libshim_atomic.so
+
 # WLAN
 TARGET_PROVIDES_WCNSS_QMI := true
 
@@ -148,5 +155,8 @@ BOARD_WPA_SUPPLICANT_DRIVER := NL80211
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
 BOARD_HOSTAPD_DRIVER := NL80211
 BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
+TARGET_USES_QCOM_WCNSS_QMI := true
+PRODUCT_VENDOR_MOVE_ENABLED := true
 WIFI_DRIVER_FW_PATH_STA := "sta"
 WIFI_DRIVER_FW_PATH_AP  := "ap"
+WIFI_HIDL_FEATURE_DISABLE_AP_MAC_RANDOMIZATION := true

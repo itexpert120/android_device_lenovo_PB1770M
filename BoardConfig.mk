@@ -34,6 +34,10 @@ AUDIO_FEATURE_ENABLED_MULTI_VOICE_SESSIONS := true
 BOARD_USES_ALSA_AUDIO := true
 USE_CUSTOM_AUDIO_POLICY := 1
 
+# Bootanimation
+TARGET_BOOTANIMATION_PRELOAD := true
+TARGET_BOOTANIMATION_TEXTURE_CACHE := true
+
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
 BOARD_HAVE_BLUETOOTH := true
@@ -127,6 +131,27 @@ TARGET_LD_SHIM_LIBS += \
     /system/vendor/bin/mm-pp-daemon|libshim_atomic.so \
     /system/vendor/bin/mm-qcamera-daemon|libshim_atomic.so \
     /system/vendor/bin/perfd|libshim_atomic.so
+
+# Speed profile services and wifi-service to reduce RAM and storage.
+PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
+
+# Enable dexpreopt to speed boot time
+WITH_DEXPREOPT := true
+WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY := false
+WITH_DEXPREOPT_DEBUG_INFO := false
+USE_DEX2OAT_DEBUG := false
+DONT_DEXPREOPT_PREBUILTS := true
+PRODUCT_USE_PROFILE_FOR_BOOT_IMAGE := true
+PRODUCT_DEX_PREOPT_BOOT_IMAGE_PROFILE_LOCATION := frameworks/base/config/boot-image-profile.txt
+PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
+PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
+
+# Dexpreopt some apps for speed
+PRODUCT_DEXPREOPT_SPEED_APPS += \
+    TrebuchetQuickStep \
+    Settings \
+    SystemUI
+PRODUCT_ALWAYS_PREOPT_EXTRACTED_APK := true
 
 # WLAN
 TARGET_PROVIDES_WCNSS_QMI := true
